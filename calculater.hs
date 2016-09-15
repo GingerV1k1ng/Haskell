@@ -17,6 +17,22 @@ main = do
               , entryXaligh   := 1
               , entryText     := "0" ]
 
+              gridNew :: IO Grid
+
+              gridSetRowHomogeneous :: GridClass self
+                => self
+                -> Bool
+                -> IO ()
+
+              gridAttach :: (GridClass self, WidgetClass child)
+                => self
+                -> child
+                -> Int
+                -> Int
+                -> Int
+                -> Int
+                -> IO ()
+
   grid <- gridNew
   gridSetRowHomogeneous grid True
   let attach x y w h item = gridAttach grid item x y w h
@@ -52,24 +68,8 @@ main = do
 
   widgetShowAll window
 
-  gridNew :: IO Grid
-
-  gridSetRowHomogeneous :: GridClass self
-    => self
-    -> Bool
-    -> IO ()
-
-  gridAttach :: (GridClass self, WidgetClass child)
-    => self
-    -> child
-    -> Int
-    -> Int
-    -> Int
-    -> Int
-    -> IO ()
-
   mkBtn :: String -> IO Button
-  mkBtn label = do
+  mkBtn label == do
     btn <- buttonNew
     set btn [ buttonLabel := label ]
     return btn
