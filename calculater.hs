@@ -1,37 +1,26 @@
-import Control.Monad
-import Control.Monad.IO.Class
-import Data.IORef
-import Graphics.UI.Gtk hiding (Action, backspace)
+module Main (main) where
+import           Control.Monad
+import           Control.Monad.IO.Class
+import           Data.IORef
+import           Graphics.UI.Gtk        hiding (Action, backspace)
 
 main :: IO ()
 main = do
   void initGUI
   window <- windowNew
   set window [ windowTitle         := "Calculator"
-             , windowResizable     := True
+             , windowResizable     := False
              , windowDefaultWidth  := 230
              , windowDefaultHeight := 250 ]
+
+  widgetShowAll window
+  mainGUI
+
 
   display <- entryNew
   set display [ entryEditable := False
               , entryXaligh   := 1
               , entryText     := "0" ]
-
-              gridNew :: IO Grid
-
-              gridSetRowHomogeneous :: GridClass self
-                => self
-                -> Bool
-                -> IO ()
-
-              gridAttach :: (GridClass self, WidgetClass child)
-                => self
-                -> child
-                -> Int
-                -> Int
-                -> Int
-                -> Int
-                -> IO ()
 
   grid <- gridNew
   gridSetRowHomogeneous grid True
@@ -66,12 +55,25 @@ main = do
   mkBtn "+"   >>= attach 3 6 1 1
   containerAdd window grid
 
-  widgetShowAll window
 
-  mkBtn :: String -> IO Button
-  mkBtn label == do
-    btn <- buttonNew
-    set btn [ buttonLabel := label ]
-    return btn
+gridNew :: IO Grid
 
-  mainGUI
+gridSetRowHomogeneous :: GridClass self
+  => self
+  -> Bool
+  -> IO ()
+
+gridAttach :: (GridClass self, WidgetClass child)
+   => self
+   -> child
+   -> Int
+   -> Int
+   -> Int
+   -> Int
+   -> IO ()
+
+mkBtn :: String -> IO Button
+mkBtn label = do
+  btn <- buttonNew
+  set btn [ buttonLabel := label ]
+  return btn
