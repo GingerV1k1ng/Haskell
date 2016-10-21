@@ -56,21 +56,21 @@ main = do
   containerAdd window grid
 
 
-gridNew :: IO Grid
+  gridNew :: IO Grid
 
-gridSetRowHomogeneous :: GridClass self
-  => self
-  -> Bool
-  -> IO ()
+  gridSetRowHomogeneous :: GridClass self
+    => self
+    -> Bool
+    -> IO ()
 
-gridAttach :: (GridClass self, WidgetClass child)
-   => self
-   -> child
-   -> Int
-   -> Int
-   -> Int
-   -> Int
-   -> IO ()
+  gridAttach :: (GridClass self, WidgetClass child)
+    => self
+    -> child
+    -> Int
+    -> Int
+    -> Int
+    -> Int
+    -> IO ()
 
 mkBtn :: String -> IO Button
 mkBtn label = do
