@@ -10,7 +10,9 @@ operatorRegister = [
                 ("-", (-))
               ]
 
-main = print $ calculate "2 * 5 + 5 - 5 / 1"
+main = do
+  math <- getLine
+  print $ calculate math
 
 calculate :: String -> Double
 calculate = eval operatorRegister . words
