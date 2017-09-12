@@ -1,3 +1,5 @@
+import           Control.Monad
+
 type Operator = Double -> Double -> Double
 type Entry = (String, Operator)
 type Register = [Entry]
@@ -10,9 +12,11 @@ operatorRegister = [
                 ("-", (-))
               ]
 
+main :: IO ()
 main = do
   math <- getLine
   print $ calculate math
+  main
 
 calculate :: String -> Double
 calculate = eval operatorRegister . words
