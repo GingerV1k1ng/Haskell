@@ -1,5 +1,3 @@
-import           Control.Monad
-
 type Operator = Double -> Double -> Double
 type Entry = (String, Operator)
 type Register = [Entry]
