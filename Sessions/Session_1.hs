@@ -1,3 +1,9 @@
+
+module Main where
+
+main :: IO ()
+main = putStrLn "Hello World"
+
 sumH 1 = 1
 sumH n = n + sumH(n-1)
 
