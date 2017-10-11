@@ -35,7 +35,7 @@ sayMe 4 = "Four!"
 sayMe 5 = "Five!"
 sayMe x = "Not between 1 and 5"
 
-removeNonUppercase :: [Char] -> [Char]
+removeNonUppercase :: String -> String
 removeNonUppercase st = [ c | c <- st, c `elem` ['A'..'Z']]
 
 addThree :: Int -> Int -> Int -> Int
