@@ -8,7 +8,7 @@ sumH :: (Num t, Eq t) => t -> t
 sumH 1 = 1
 sumH n = n + sumH(n-1)
 
-fib :: (Num t, Num a, Eq a) => a -> t
+type TVar = String
 fib 0 = 0
 fib 1 = 1
 fib n = fib (n - 1) + fib (n - 2)

@@ -5,7 +5,7 @@ main = putStrLn "Hello World"
 
 data Type = Int | Bool | To Type Type | Cross Type Type  deriving Show
 
-type Var = String
+type TVar = String
 
 data LamdaC = Vari(Var) | Cons C | Pair LamdaC LamdaC | App LamdaC LamdaC | If LamdaC LamdaC LamdaC | Lamda Var LamdaC | Let Var LamdaC LamdaC deriving Show
 
